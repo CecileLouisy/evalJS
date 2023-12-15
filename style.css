@@ -1,0 +1,3 @@
+/*code pris sur la demo droppable de la doc jquery ui pour réaliser le captcha*/
+#draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
