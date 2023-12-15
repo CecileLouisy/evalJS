@@ -40,8 +40,8 @@ $(document).ready(function(){//Permet d'executer mes fonctions uniquement lorsqu
       } );
 
     //Création d'une fonction qui active le bouton connexion
-    if (){
-        $('.connection, button[name="submit"]').removeAttr("disabled='disabled'")//On selectionne le bon bouton submit et on enlève disabled pour libérer le bouton
+    if (drop){//Si le statut de la zone de validation est dropped
+        $('.connection, button[name="submit"]').remove("disabled='disabled'")//On selectionne le bon bouton submit et on enlève disabled pour libérer le bouton
     }
 
     function utilisateur(email_login,password_login){ //On crée une fonction constructeur pour la connexion
@@ -53,16 +53,61 @@ $(document).ready(function(){//Permet d'executer mes fonctions uniquement lorsqu
         utilisateur();
     });
 
-    $.ajax()
-    POST
-    ajax.php
+    $.ajax({//avec l'aide de la doc jquery ajax
+        url:"ajax.php",//url de ttt
+        data:{
+            email_login,password_login //les données à envoyer
+        },
+        type:"POST",//Methode du formulaire
+        dataType:"text",//type de données
+
+    });
+    FormData()
+    const request = new XMLHttpRequest();
+    request.open("POST", "ajax.php");
         $('name["login"]').submit(function(e){}); //Pour l'évènement
         $(".message").css("display","content") //On enlève le display:none de la div message pour la montrer
     if($("#email_login"!=""&&"#password_login"!="")){
         $(".message").css("border","1px solid green").html("<p>Inscription OK</p>");//bordure verte+message ok ds la div message
-    }else if (){
+    }else if("#password_login"!="#password"){
         $(".message").css("border","1px solid red").html("<p>Erreur mot de passe</p>");//bordure rouge+message erreur mdp ds la div message
     }else{
         $(".message").css("border","1px solid red").html("<p>Error</p>");//bordure rouge+message erreur ds la div message
     }
 });
+
+/*doc jquery// Using the core $.ajax() method
+$.ajax({
+ 
+    // The URL for the request
+    url: "post.php",
+ 
+    // The data to send (will be converted to a query string)
+    data: {
+        id: 123
+    },
+ 
+    // Whether this is a POST or GET request
+    type: "GET",
+ 
+    // The type of data we expect back
+    dataType : "json",
+})
+  // Code to run if the request succeeds (is done);
+  // The response is passed to the function
+  .done(function( json ) {
+     $( "<h1>" ).text( json.title ).appendTo( "body" );
+     $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+  })
+  // Code to run if the request fails; the raw request and
+  // status codes are passed to the function
+  .fail(function( xhr, status, errorThrown ) {
+    alert( "Sorry, there was a problem!" );
+    console.log( "Error: " + errorThrown );
+    console.log( "Status: " + status );
+    console.dir( xhr );
+  })
+  // Code to run regardless of success or failure;
+  .always(function( xhr, status ) {
+    alert( "The request is complete!" );
+  });*/
